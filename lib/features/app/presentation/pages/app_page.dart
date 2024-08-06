@@ -1,6 +1,5 @@
+import 'package:car_rental_app/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
-
-import '../../../onboarding/presentation/pages/onboarding_page.dart';
 
 class AppPage extends StatelessWidget {
   const AppPage({super.key});
