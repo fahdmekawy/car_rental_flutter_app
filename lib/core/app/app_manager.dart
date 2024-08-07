@@ -1,3 +1,4 @@
+import 'package:car_rental_app/core/di/dependency_injection.dart';
 import 'package:car_rental_app/features/app/presentation/pages/app_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class AppManager {
     runZonedGuarded(
       () async {
         WidgetsFlutterBinding.ensureInitialized();
+        initInjection();
         await Firebase.initializeApp(
             options: DefaultFirebaseOptions.currentPlatform);
         runApp(

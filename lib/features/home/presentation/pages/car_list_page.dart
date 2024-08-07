@@ -1,5 +1,7 @@
-import 'package:car_rental_app/features/home/data/models/car_model.dart';
+import 'package:car_rental_app/features/home/presentation/bloc/car_bloc.dart';
+import 'package:car_rental_app/features/home/presentation/bloc/car_states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/car_card.dart';
 
@@ -8,25 +10,29 @@ class CarListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<CarModel> car = [
-      CarModel(
-          model: 'BMW', distance: 1000, fuelCapacity: 50, pricePerHour: 45),
-      CarModel(
-          model: 'BMW', distance: 1000, fuelCapacity: 50, pricePerHour: 45),
-      CarModel(
-          model: 'BMW', distance: 1000, fuelCapacity: 50, pricePerHour: 45),
-    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose you car'),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
-      body: ListView.builder(
-        itemCount: car.length,
-        itemBuilder: (context, index) => CarCard(
-          carModel: car[index],
-        ),
+      body: BlocBuilder<CarBloc, CarStates>(
+        builder: (context, state) {
+          if (state is CarLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is CarLoaded) {
+            return ListView.builder(
+              itemCount: state.cars.length,
+              itemBuilder: (context, index) => CarCard(
+                carModel: state.cars[index],
+              ),
+            );
+          } else if (state is CarError) {
+            return Center(child: Text(state.error));
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
       ),
     );
   }

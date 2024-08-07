@@ -12,6 +12,16 @@ dependencies:
   # Firebase
   firebase_core: 3.3.0
   cloud_firestore: 5.2.1
+  # A versatile mapping package for Flutter, that's simple and easy to learn, yet completely customizable and configurable
+  flutter_map: 7.0.2
+  # The Flutter plugin for Google Maps.
+  latlong2: ^0.9.1
+  # State management
+  bloc: 8.1.4
+  flutter_bloc: 8.1.6
+  # Dependencies injection
+  get_it: 7.7.0
+
 
 dev_dependencies:
   flutter_test:

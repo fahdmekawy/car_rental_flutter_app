@@ -7,10 +7,21 @@ class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle whiteTextFont24Bold = const TextStyle(
+    color: Colors.white,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle whiteTextFont16Bold = const TextStyle(
     color: Colors.white,
     fontSize: 16,
     fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle whiteTextFont16Regular = const TextStyle(
+    color: Colors.white,
+    fontSize: 16,
   );
 
   static TextStyle blackTextFont16Bold = const TextStyle(
@@ -34,8 +45,18 @@ class TextStyles {
     color: Colors.grey,
   );
 
+  static TextStyle grayTextFont10Regular = const TextStyle(
+    fontSize: 10,
+    color: Colors.grey,
+  );
+
   static TextStyle blackTextFont20Bold = const TextStyle(
     fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle blackTextFont28Bold = const TextStyle(
+    fontSize: 28,
     fontWeight: FontWeight.bold,
   );
 }

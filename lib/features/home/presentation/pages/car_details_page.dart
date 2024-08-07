@@ -1,7 +1,9 @@
 import 'package:car_rental_app/core/common/widgets/vertical_space.dart';
+import 'package:car_rental_app/core/extensions/context.dart';
 import 'package:car_rental_app/core/theme/colors.dart';
 import 'package:car_rental_app/core/theme/text_styles.dart';
 import 'package:car_rental_app/features/home/data/models/car_model.dart';
+import 'package:car_rental_app/features/home/presentation/pages/map_details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/car_card.dart';
@@ -100,16 +102,21 @@ class _CardDetailsPageState extends State<CardDetailsPage>
                 const SizedBox(width: 20),
                 Expanded(
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      context.navigateTo(MapDetailsPage(
+                        carModel: widget.carModel,
+                      ));
+                    },
                     child: Container(
                       height: 170,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: const [
                           BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 10,
-                              spreadRadius: 5)
+                            color: Colors.black12,
+                            blurRadius: 10,
+                            spreadRadius: 5,
+                          )
                         ],
                       ),
                       child: ClipRRect(
